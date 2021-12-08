@@ -1,0 +1,32 @@
+@import '../../assets/variable.scss';
+
+.left_bar {
+	height: 100vh;
+	width: 20em;
+	background-color: $primary-color;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	flex-direction: column;
+	color: white;
+	font-weight: bold;
+	p {
+		font-size: 2.5em;
+		padding: 0.2em;
+		text-align: center;
+		// width: 70%;
+		margin: 0.2em 0;
+	}
+	.wrapper {
+		background-color: white;
+		border-radius: 0.2em;
+		padding: 0.1em;
+		text-align: center;
+		justify-content: center;
+		align-items: center;
+		display: flex;
+		.value {
+			color: $primary-color;
+		}
+	}
+}

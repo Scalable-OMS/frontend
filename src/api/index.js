@@ -31,3 +31,13 @@ export const getRoutes = async () => {
 		return responseFormatter(undefined, err)
 	}
 }
+
+export const loginAPI = async (creds) => {
+	const url = BASE_URL + "/auth/login"
+	try {
+		const response = await axios.post(url, creds);
+		return responseFormatter(response);
+	} catch(err) {
+		return responseFormatter(undefined, err)
+	}
+}
