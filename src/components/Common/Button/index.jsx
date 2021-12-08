@@ -3,11 +3,12 @@ import './style.scss';
 
 const Button = ({
 	clickHandler,
-	title
+	title,
+	classes
 }) => {
 	return (
 		<div 
-			className='custom_button'
+			className={`custom_button ${classes}`}
 			onClick={clickHandler}
 			role='button'
 			tabIndex={0}

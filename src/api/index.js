@@ -38,6 +38,16 @@ export const loginAPI = async (creds) => {
 		const response = await axios.post(url, creds);
 		return responseFormatter(response);
 	} catch(err) {
-		return responseFormatter(undefined, err)
+		return responseFormatter(undefined, err);
+	}
+}
+
+export const logoutAPI = async () => {
+	const url = BASE_URL + "/auth/logout";
+	try {
+		const response = await axios.put(url, null, { headers: getHeaders() });
+		return responseFormatter(response);
+	} catch(err) {
+		return responseFormatter(undefined, err);
 	}
 }

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import AuthContext from '../AuthContext';
-import { loginAPI } from '../../../api';
+import { loginAPI, logoutAPI } from '../../../api';
 
 const AuthProvider = ({ children }) => {
 	const [isLoggedin, setIsLoggedin] = useState(true);
@@ -24,11 +24,20 @@ const AuthProvider = ({ children }) => {
 		}
 	}
 
+	const logout = async () => {
+		const res = await logoutAPI();
+		if (res.status === 200) {
+			localStorage.removeItem("userToken");
+			setIsLoggedin(false);
+		}
+	}
+
 	return (
 		<AuthContext.Provider
 			value={{
 				loginstate: [isLoggedin, setIsLoggedin],
-				login
+				login,
+				logout
 			}}
 		>
 			{children}

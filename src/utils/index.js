@@ -8,7 +8,7 @@ export const filterData = (data, key, conditions) => {
 				.filter(d => d.city === conditions["city"])
 				.map(dd => dd.postalCode)
 			return codes;
-		case "orders":
+		default:
 			const orders = data
 				.filter(d => d.city === conditions["city"] && d.postalCode === conditions["postalCode"])
 				.map(dd => dd.orders)
@@ -22,6 +22,7 @@ export const getCount = (key, value, data) => {
 		if (d[key] === value) {
 			count += d.orders.length
 		}
+		return d;
 	});
 	return count;
 }

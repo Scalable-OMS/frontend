@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { mockRoutesData } from '../../api/mock';
-import Card from '../../components/Card';
-import Leftbar from '../../components/Leftbar';
+import Card from '../../components/Common/Card';
+import Leftbar from '../../components/Layout/Leftbar';
 import { filterData, getCount } from '../../utils';
 import './style.scss';
 
@@ -54,7 +54,7 @@ const Home = () => {
 				{currentDisplay === 'City' ?
 					<>
 						{cityRoutesData.length > 0 && cityRoutesData.map(city => (
-							<Card 
+							<Card
 								classes="cities"
 								cardType='City'
 								data={{ name: city, count: getCount("city", city, mockRoutesData) }} 
@@ -74,13 +74,13 @@ const Home = () => {
 					</>
 					:
 					<>
-						{ordersData.length > 0 && ordersData.map(order => {
+						{ordersData.length > 0 && ordersData.map(order => (
 							<Card 
 								classes="orders"
 								cardType="Order"
 								data={{ name: order }}
 							/>
-						})}
+						))}
 					</>
 				}
 			</div>
