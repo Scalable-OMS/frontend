@@ -12,11 +12,13 @@ const Navbar = () => {
 		<div className="nav_bar">
 			<img src={Icon} className="icon" alt='Order Management System' />
 			<span className="app_name">Order Management System</span>
-			<Button 
-				title={`${isLoggedin ? "Logout": "Login"}`} 
-				classes="secondary"
-				clickHandler={logout}
-			/>
+			{isLoggedin && 
+				<Button 
+					title="Logout" 
+					classes="secondary"
+					clickHandler={logout}
+				/>
+			}
 		</div>
 	)
 };

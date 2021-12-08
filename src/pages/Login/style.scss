@@ -1,0 +1,36 @@
+@import "../../assets/variable.scss";
+
+.container {
+	background-color: $primary-color;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 0.3em;
+	padding: 1em;
+	display: flex;
+	flex-direction: column;
+
+	label {
+		color: white;
+		font-weight: bold;
+		font-size: 1.5em;
+	}
+	.custom_input {
+		padding: 0.3em;
+		border-radius: 0.2em;
+		border: none;
+		margin: 0.5em 0;
+		font-size: 1.5em;
+		&::placeholder {
+			font-size: 0.8em;
+			color: lightgray;
+		}
+	}
+	.custom_button {
+		background-color: white;
+		color: $primary-color;
+		align-self: center;
+		padding: 0.5em 2em;
+	}
+}

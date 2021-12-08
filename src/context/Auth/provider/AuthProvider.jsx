@@ -10,7 +10,7 @@ const AuthProvider = ({ children }) => {
 		if (token) {
 			setIsLoggedin(true);
 		} else {
-			// setIsLoggedin(false);
+			setIsLoggedin(false);
 		}
 	}, []);
 

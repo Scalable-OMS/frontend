@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import Button from '../../components/Common/Button';
 import AuthContext from '../../context/Auth/AuthContext';
 import './style.scss';
 
@@ -21,19 +22,20 @@ const Login = () => {
 				className='custom_input' 
 				type='email'
 				onChange={(e) => setEmail(e.target.value)}
+				placeholder="Type email here..."
 			/>
 			<label>Password</label>
 			<input 
 				className="custom_input"
 				type='password'
 				onChange={(e) => setPassword(e.target.value)}
+				placeholder="Type password here..."
 			/>
-			<button 
+			<Button 
 				className="custom_button"
 				onClick={() => loginHandler()}
-			>
-				Login
-			</button>
+				title="Login"
+			/>
 		</div>
 	)
 };
