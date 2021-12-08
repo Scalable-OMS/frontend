@@ -8,7 +8,7 @@ const Layout = () => {
 	const { 
 		loginstate
 	} = useContext(AuthContext);
-	const [ isLoggedin, setIsLoggedin ] = loginstate
+	const [ isLoggedin, ] = loginstate
 	return (
 		<div>
 			<Navbar />
