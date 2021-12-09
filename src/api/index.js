@@ -51,3 +51,23 @@ export const logoutAPI = async () => {
 		return responseFormatter(undefined, err);
 	}
 }
+
+export const getDrivers = async (city) => {
+	const url = BASE_URL + "/routes/drivers?city="+city;
+	try {
+		const response = await axios.get(url, { headers: getHeaders() });
+		return responseFormatter(response);
+	} catch(err) {
+		return responseFormatter(undefined, err);
+	}
+}
+
+export const updateRouteOrders = async (city, deliveryDate, status) => {
+	const url = BASE_URL + "/routes";
+	try {
+		const response = await axios.put(url, { city, deliveryDate, status }, { headers: getHeaders() });
+		return responseFormatter(response);
+	} catch(err) {
+		return responseFormatter(undefined, err);
+	}
+}

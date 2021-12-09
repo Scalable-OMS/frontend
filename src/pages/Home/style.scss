@@ -1,9 +1,19 @@
 .container {
 	display: flex;
 	flex-direction: row;
-	.grid {
-		display: grid;
-		grid-template-columns: 1fr 1fr 1fr;
-		margin-top: 7%;
+	.content {
+		.date_selected {
+			margin-top: 9%;
+			font-size: 2em;
+			color: black;
+			font-weight: bold;
+			text-align: center;
+		}
+		.grid {
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr;
+			grid-template-rows: min-content;
+			// margin-top: 7%;
+		}
 	}
 }

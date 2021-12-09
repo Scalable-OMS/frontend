@@ -12,11 +12,18 @@ const Home = () => {
 	const [postalCodes, setPostalCodes] = useState([]);
 	const [selectedPostalCode, setSelectedPostalCode] = useState();
 	const [ordersData, setOrders] = useState([]);
+	const [deliveryDate, setDeliveryDate] = useState();
 
 	useEffect(() => {
 		const data = filterData(mockRoutesData, "city");
 		setCityRoutesData(data);
+		const today = new Date()
+		setDeliveryDate(today.toISOString().split('T')[0]);
 	}, []);
+
+	useEffect(() => {
+		// fetch data with changed Delivery Date
+	}, [deliveryDate]);
 
 	useEffect(() => {
 		if (selectedCity) {
@@ -41,48 +48,58 @@ const Home = () => {
 		} else if (type === "postalCode") {
 			setSelectedPostalCode(data)
 		}
+	};
+
+	const onStatusUpdate = (category, status) => {
+
 	}
 	
 	return (
 		<div className="container">
 			{currentDisplay === "City" ? 
-				<Leftbar title="Category" value="Cities" />:
+				<Leftbar title="Category" value="Cities" onDateChange={(date) => setDeliveryDate(date)} />:
 				currentDisplay === 'postalCode' ? <Leftbar title="Postal Codes in City" value={selectedCity} />:
 				<Leftbar title={`Orders of ${selectedCity} in postalCode`} value={selectedPostalCode} />
 			}
-			<div className="grid">
-				{currentDisplay === 'City' ?
-					<>
-						{cityRoutesData.length > 0 && cityRoutesData.map(city => (
-							<Card
-								classes="cities"
-								cardType='City'
-								data={{ name: city, count: getCount("city", city, mockRoutesData) }} 
-								clickHandler={clickHandler}
-							/>
-						))}
-					</>
-					: currentDisplay === 'postalCode' ?
-					<>
-						{postalCodes.length > 0 && postalCodes.map(code => (
-							<Card 
-								classes="postalCodes"
-								cardType='postalCode'
-								data={{ name: code, count: getCount("postalCode", code, mockRoutesData) }} 
-							/>
-						))}
-					</>
-					:
-					<>
-						{ordersData.length > 0 && ordersData.map(order => (
-							<Card 
-								classes="orders"
-								cardType="Order"
-								data={{ name: order }}
-							/>
-						))}
-					</>
-				}
+			<div className='content'>
+				<p className='date_selected'>Selected Date: {(new Date(deliveryDate)).toDateString()}</p>
+				<div className="grid">
+					{currentDisplay === 'City' ?
+						<>
+							{cityRoutesData.length > 0 && cityRoutesData.map(city => (
+								<Card
+									classes="cities"
+									cardType='City'
+									data={{ name: city, count: getCount("city", city, mockRoutesData) }} 
+									clickHandler={clickHandler}
+									onStatusUpdate={onStatusUpdate}
+								/>
+							))}
+						</>
+						: currentDisplay === 'postalCode' ?
+						<>
+							{postalCodes.length > 0 && postalCodes.map(code => (
+								<Card 
+									classes="postalCodes"
+									cardType='postalCode'
+									data={{ name: code, count: getCount("postalCode", code, mockRoutesData) }}
+									onStatusUpdate={onStatusUpdate}
+								/>
+							))}
+						</>
+						:
+						<>
+							{ordersData.length > 0 && ordersData.map(order => (
+								<Card 
+									classes="orders"
+									cardType="Order"
+									data={{ name: order }}
+									onStatusUpdate={onStatusUpdate}
+								/>
+							))}
+						</>
+					}
+				</div>
 			</div>
 		</div>
 	)

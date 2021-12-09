@@ -6,7 +6,8 @@ const Card = ({
 	classes,
 	cardType,
 	data,
-	clickHandler
+	clickHandler,
+	onStatusUpdate={onStatusUpdate}
 }) => {
 	return (
 		<div 
@@ -27,8 +28,8 @@ const Card = ({
 			</div>
 			<label className='card_label add_margin'>Change Status</label>
 			<div className='row'>
-				<Button title="Out for Delivery" />
-				<Button title="Delivered" />
+				<Button title="Out for Delivery" onStatusUpdate={() => onStatusUpdate({ key: cardType, value: data.name }, "Out for Delivery")} />
+				<Button title="Delivered" onStatusUpdate={() => onStatusUpdate({ key: cardType, value: data.name }, "Delivered")} />
 			</div>
 		</div>
 	)
