@@ -7,7 +7,7 @@ const Card = ({
 	cardType,
 	data,
 	clickHandler,
-	onStatusUpdate={onStatusUpdate}
+	onStatusUpdate
 }) => {
 	return (
 		<div 

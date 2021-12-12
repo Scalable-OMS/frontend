@@ -8,29 +8,29 @@
 	height: fit-content;
 
 	.card_label {
-		font-size: 2em;
+		font-size: 1.5em;
 		font-weight: bolder;
 		margin: 0;
 	}
 
 	.title {
-		font-size: 2em;
+		font-size: 1.5em;
 		font-weight: bold;
 		margin: 0.2em;
 		margin-left: 0;
 		color: $primary-color;
 	}
 	.count_wrapper {
-		width: 3em;
-		height: 3em;
+		width: 2.5em;
+		height: 2.5em;
 		border-radius: 50%;
 		background-color: $primary-color;
+		justify-content: center;
+		align-items: center;
+		display: flex;
 		.count {
-			font-size: 2em;
+			font-size: 1em;
 			color: $bg-color;
-			justify-content: center;
-			align-items: center;
-			display: flex;
 			margin: 0.2em;
 		}
 	}

@@ -1,0 +1,19 @@
+.path_card {
+	background-color: whitesmoke;
+	border-radius: 0.2em;
+	display: flex;
+	flex-direction: row;
+	width: 40em;
+	margin: 1em;
+	padding: 1em;
+	justify-content: space-between;
+	span {
+		font-weight: bold;
+		font-size: 1.2em;
+	}
+	select {
+		padding: 0.4em;
+		border-radius: 0.2em;
+		border-color: white;
+	}
+}

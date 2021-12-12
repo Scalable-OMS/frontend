@@ -33,7 +33,7 @@ const Login = () => {
 			/>
 			<Button 
 				className="custom_button"
-				onClick={() => loginHandler()}
+				clickHandler={() => loginHandler()}
 				title="Login"
 			/>
 		</div>
